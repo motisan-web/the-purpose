@@ -1,0 +1,145 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: #f5f5f0;
+  color: #1a1a1a;
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+#app {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+/* 歯車アイコン */
+.settings-link {
+  position: absolute;
+  top: 40px;
+  right: 48px;
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.settings-link:hover { color: #555; }
+.settings-link svg { width: 36px; height: 36px; }
+
+/* 3テキスト行 */
+.items-row {
+  display: flex;
+  gap: 80px;
+  align-items: stretch;
+}
+
+.item {
+  width: 480px;
+  min-height: 80px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px 32px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333;
+  word-break: break-all;
+}
+
+.item:empty::before {
+  content: '—';
+  color: #ccc;
+}
+
+/* 目標エリア */
+.goal-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.goal-label {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#goal-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 52px;
+  height: 52px;
+  border: 3px solid #aaa;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+}
+
+#goal-checkbox:checked {
+  background: #4a9a6a;
+  border-color: #4a9a6a;
+}
+
+#goal-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 13px;
+  width: 22px;
+  height: 12px;
+  border-left: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  transform: rotate(-45deg);
+}
+
+#goal-checkbox:disabled {
+  border-color: #ddd;
+  background: #f0f0f0;
+  cursor: not-allowed;
+}
+
+#goal-text {
+  font-size: 72px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.goal-deadline {
+  font-size: 32px;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+/* 完了・空 */
+.goal-done, .goal-empty {
+  font-size: 48px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+/* 期限切れ（自動スキップ済み）のテキスト色 */
+#goal-text.expired { color: #bbb; }
