@@ -46,7 +46,11 @@ foreach ($raw_goals as $g) {
 
 usort($goals, fn($a, $b) => strcmp($a['time'], $b['time']));
 
-$data_file = dirname(__FILE__) . '/../data/data.json';
+$data_dir  = dirname(__FILE__) . '/../data';
+if (!is_dir($data_dir)) {
+    mkdir($data_dir, 0755, true);
+}
+$data_file = $data_dir . '/data.json';
 $all = file_exists($data_file) ? (json_decode(file_get_contents($data_file), true) ?: []) : [];
 
 $all[$date] = ['items' => $items, 'goals' => $goals];
