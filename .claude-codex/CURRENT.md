@@ -6,9 +6,10 @@
 
 ## 直近で完了したこと
 
-- Xserver 本番環境で保存ボタンが動作しない不具合を修正
-  - 原因：`data/` ディレクトリが gitignore 対象のため Xserver 未作成 → `file_put_contents` が PHP Warning を出力してレスポンスに HTML が混入 → JSON パース失敗
-  - 修正：`api/save_day.php` に `mkdir($data_dir, 0755, true)` を追加（ディレクトリ自動生成）
+- Xserver 本番で保存ボタンが動作しない不具合を修正・デプロイ済み（→ `change/fix-data-dir-creation.md`）
+  - `api/save_day.php`: `data/` ディレクトリを `mkdir(0755, true)` で自動生成するよう修正
+- GitHub Actions の Fix permissions ステップを削除（`lftp` 未インストール＋FTP でシェルコマンド不可で毎回失敗していた）
+  - Xserver は FTP アップロード時に適切なパーミッションを設定するため不要と判断
 
 ## 次にやること
 
