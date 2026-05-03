@@ -24,10 +24,3 @@ jobs:
             **/data/**
             **/config/**
             **/config.local.php
-      - name: Fix permissions
-        run: |
-          lftp -u "${{ secrets.STAGING_USERNAME }}","${{ secrets.STAGING_PASSWORD }}" ftp://${{ secrets.STAGING_SERVER }} << 'EOF'
-          find / -type d -exec chmod 755 {} \;
-          find / -type f -exec chmod 644 {} \;
-          bye
-          EOF
