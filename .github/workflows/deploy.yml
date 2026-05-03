@@ -16,7 +16,7 @@ jobs:
           server: ${{ secrets.STAGING_SERVER }}
           username: ${{ secrets.STAGING_USERNAME }}
           password: ${{ secrets.STAGING_PASSWORD }}
-          server-dir: motisan.info/public_html/on24.motisan.info/
+          server-dir: /
           local-dir: ./
           exclude: |
             **/.git*
