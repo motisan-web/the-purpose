@@ -6,6 +6,7 @@ html, body {
   color: #1a1a1a;
   font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   font-size: 16px;
+  margin: 0 auto;
 }
 
 #app {
